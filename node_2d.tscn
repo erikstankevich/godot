@@ -1,18 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbjivejplralk"]
+[gd_scene load_steps=7 format=3 uid="uid://dbjivejplralk"]
 
 [ext_resource type="Script" uid="uid://dgaldqmkkol5i" path="res://Node2d.cs" id="1_0e48y"]
 [ext_resource type="Texture2D" uid="uid://b2ka4u17n5u1x" path="res://icon.svg" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://datehq3d4cpyd" path="res://Red2.cs" id="3_0hol4"]
+[ext_resource type="Texture2D" uid="uid://c5fvldwhs41rq" path="res://Screenshot 2025-10-21 074800.png" id="3_epypp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
+size = Vector2(124.081635, 124.19803)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
+size = Vector2(146, 150)
 
 [node name="Node2D" type="Node2D"]
-position = Vector2(173, 168)
+position = Vector2(0, -1)
 
-[node name="Player" type="Sprite2D" parent="."]
-position = Vector2(-1, 1)
+[node name="Player" type="Area2D" parent="."]
+position = Vector2(147, 147)
 scale = Vector2(0.765625, 0.7890625)
-texture = ExtResource("1_wtcfe")
 script = ExtResource("1_0e48y")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(356.5, -28)
-scale = Vector2(0.9140623, 0.96875)
+[node name="Player" type="Sprite2D" parent="Player"]
 texture = ExtResource("1_wtcfe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0.6530609, -1.2673187)
+shape = SubResource("RectangleShape2D_epypp")
+
+[node name="red2" type="Area2D" parent="."]
+position = Vector2(591, 160)
+script = ExtResource("3_0hol4")
+
+[node name="red" type="Sprite2D" parent="red2"]
+position = Vector2(-5.41803, 2.5937347)
+scale = Vector2(0.9140623, 0.96875)
+texture = ExtResource("3_epypp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="red2"]
+position = Vector2(-8, 0)
+shape = SubResource("RectangleShape2D_0hol4")
