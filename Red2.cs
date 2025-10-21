@@ -7,7 +7,24 @@ public partial class Red2 : Area2D
 	{
 		// Correct signal connection
 		Connect("area_entered", new Callable(this, nameof(OnAreaEntered)));
+		InputPickable = true;
 	}
+
+	
+
+	public override void _InputEvent(Viewport viewport, InputEvent @event, int shapeIdx)
+	{
+		if (@event is InputEventMouseButton mouseEvent)
+		{
+			if (mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Left)
+			{
+				GD.Print("Red2 was clicked!");
+				GetNode<AudioStreamPlayer>("ClickSound").Play();
+			}
+		}
+	}
+
+
 
 	private void OnAreaEntered(Node area)
 	{
