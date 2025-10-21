@@ -19,7 +19,14 @@ public partial class Red2 : Area2D
 			if (mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Left)
 			{
 				GD.Print("Red2 was clicked!");
-				GetNode<AudioStreamPlayer>("ClickSound").Play();
+
+
+				var player = GetNode<Node2D>("/root/Node2D/Player");
+				player.GlobalPosition = new Vector2(0, 0);
+
+
+				
+
 			}
 		}
 	}
