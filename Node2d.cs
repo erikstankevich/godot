@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class Node2d : Node2D
+public partial class Node2d : Area2D
 {
 	[Export] public float Speed { get; set; } = 200.0f;
 
@@ -20,5 +20,16 @@ public partial class Node2d : Node2D
 
 		if (velocity != Vector2.Zero)
 			Position += velocity.Normalized() * Speed * (float)delta;
+	}
+
+	public override void _InputEvent(Viewport viewport, InputEvent @event, int shapeIdx)
+	{
+		if (@event is InputEventMouseButton mouseEvent)
+		{
+			if (mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Left)
+			{
+				GD.Print("Player was clicked!");
+			}
+		}
 	}
 }
