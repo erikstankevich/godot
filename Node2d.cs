@@ -7,6 +7,10 @@ public partial class Node2d : Area2D
 	public override void _Ready()
 	{
 		GD.Print("✅ Node2d script running!");
+
+
+		Connect("mouse_entered", new Callable(this, nameof(OnMouseEntered)));
+		Connect("mouse_exited", new Callable(this, nameof(OnMouseExited)));
 	}
 
 	public override void _Process(double delta)
@@ -31,5 +35,14 @@ public partial class Node2d : Area2D
 				GD.Print("Player was clicked!");
 			}
 		}
+	}
+
+	public void OnMouseEntered()
+	{
+		GD.Print("Hovered Player");
+	}
+	public void OnMouseExited()
+	{
+		GD.Print("Mouse left Red2.");
 	}
 }
