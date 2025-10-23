@@ -3,6 +3,11 @@ using System;
 
 public partial class Red2 : Area2D
 {
+	private float speed = 100.0f;
+	private Vector2 direction = new Vector2(0, 1);
+
+
+
 	public override void _Ready()
 	{
 		// Correct signal connection
@@ -53,5 +58,16 @@ public partial class Red2 : Area2D
 	private void OnMouseExited()
 	{
 		GD.Print("Mouse left Red2.");
+	}
+
+
+	public override void _Process(double delta)
+	{
+		Position += direction * speed * (float)delta;
+
+		if (Position.Y > 300 || Position.Y < 0)
+		{
+			direction.Y *= -1;
+		}
 	}
 }
