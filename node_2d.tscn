@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://dbjivejplralk"]
 
-[ext_resource type="Script" uid="uid://dgaldqmkkol5i" path="res://Node2d.cs" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://cwk8t2sn21oex" path="res://Player.cs" id="1_d21ai"]
 [ext_resource type="Texture2D" uid="uid://b2ka4u17n5u1x" path="res://icon.svg" id="1_wtcfe"]
 [ext_resource type="Script" uid="uid://datehq3d4cpyd" path="res://Red2.cs" id="3_0hol4"]
 [ext_resource type="Texture2D" uid="uid://c5fvldwhs41rq" path="res://Screenshot 2025-10-21 074800.png" id="3_epypp"]
-[ext_resource type="Script" uid="uid://cwfifc4x8n2b0" path="res://blue.cs" id="5_kdubu"]
+[ext_resource type="Script" path="res://Blue.cs" id="5_d21ai"]
 [ext_resource type="Texture2D" uid="uid://dm08oihftjas1" path="res://Screenshot 2025-10-23 081131.png" id="6_d21ai"]
 [ext_resource type="Script" uid="uid://ljaercp1h12v" path="res://Red3.cs" id="7_d21ai"]
 
@@ -23,7 +23,7 @@ position = Vector2(0, -1)
 [node name="Player" type="Area2D" parent="."]
 position = Vector2(147, 147)
 scale = Vector2(0.765625, 0.7890625)
-script = ExtResource("1_0e48y")
+script = ExtResource("1_d21ai")
 
 [node name="Player" type="Sprite2D" parent="Player"]
 texture = ExtResource("1_wtcfe")
@@ -47,7 +47,7 @@ shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="blue" type="Area2D" parent="."]
 position = Vector2(876, 191)
-script = ExtResource("5_kdubu")
+script = ExtResource("5_d21ai")
 
 [node name="Sprite2D" type="Sprite2D" parent="blue"]
 position = Vector2(-1.9999981, 2)
