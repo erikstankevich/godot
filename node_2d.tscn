@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dbjivejplralk"]
+[gd_scene load_steps=14 format=3 uid="uid://dbjivejplralk"]
 
 [ext_resource type="Script" uid="uid://cwk8t2sn21oex" path="res://Player.cs" id="1_d21ai"]
 [ext_resource type="Texture2D" uid="uid://b2ka4u17n5u1x" path="res://icon.svg" id="1_wtcfe"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://Blue.cs" id="5_d21ai"]
 [ext_resource type="Texture2D" uid="uid://dm08oihftjas1" path="res://Screenshot 2025-10-23 081131.png" id="6_d21ai"]
 [ext_resource type="Script" uid="uid://ljaercp1h12v" path="res://Red3.cs" id="7_d21ai"]
+[ext_resource type="Script" uid="uid://uwjm33o0fsda" path="res://GREEN.cs" id="8_4d7sh"]
+[ext_resource type="Texture2D" uid="uid://cihkasy5aauiq" path="res://green.png" id="9_ir8iy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
 size = Vector2(124.081635, 124.19803)
@@ -16,6 +18,9 @@ size = Vector2(146, 150)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rj586"]
 radius = 57.00877
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqns4"]
+size = Vector2(92, 90)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(0, -1)
@@ -71,3 +76,16 @@ texture = ExtResource("3_epypp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Red3"]
 position = Vector2(-8, 0)
 shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="GREEN" type="Area2D" parent="."]
+position = Vector2(338, 71)
+script = ExtResource("8_4d7sh")
+
+[node name="Sprite2D" type="Sprite2D" parent="GREEN"]
+position = Vector2(1.0000134, -4.5776367e-05)
+scale = Vector2(6, 5.6764708)
+texture = ExtResource("9_ir8iy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GREEN"]
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_hqns4")
