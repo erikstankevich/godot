@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dbjivejplralk"]
+[gd_scene load_steps=26 format=3 uid="uid://dbjivejplralk"]
 
 [ext_resource type="Script" uid="uid://cwk8t2sn21oex" path="res://Player.cs" id="1_d21ai"]
 [ext_resource type="Texture2D" uid="uid://b2ka4u17n5u1x" path="res://icon.svg" id="1_wtcfe"]
@@ -15,10 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://cwfmer8ir1n1n" path="res://maniac.png" id="13_nr8wp"]
 [ext_resource type="Script" uid="uid://cefwch5t1lnaj" path="res://Skype.cs" id="14_d2bti"]
 [ext_resource type="Texture2D" uid="uid://dpo6ixtcnafsk" path="res://skype.png" id="15_ta5nu"]
+[ext_resource type="Script" uid="uid://b7jkei4ln2c5v" path="res://Firewall.cs" id="16_flf07"]
 [ext_resource type="Texture2D" uid="uid://cnt72yhbp03ir" path="res://firewall.png" id="16_ta5nu"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
-size = Vector2(124.081635, 124.19803)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
 size = Vector2(146, 150)
@@ -41,23 +39,14 @@ size = Vector2(94, 118)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k73cj"]
 size = Vector2(124, 108)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjqkl"]
+size = Vector2(113.632645, 122.930695)
+
 [node name="Node2D" type="Node2D"]
 position = Vector2(0, -1)
 
-[node name="Player" type="Area2D" parent="."]
-position = Vector2(147, 147)
-scale = Vector2(0.765625, 0.7890625)
-script = ExtResource("1_d21ai")
-
-[node name="Player" type="Sprite2D" parent="Player"]
-texture = ExtResource("1_wtcfe")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0.6530609, -1.2673187)
-shape = SubResource("RectangleShape2D_epypp")
-
 [node name="red2" type="Area2D" parent="."]
-position = Vector2(594, 106)
+position = Vector2(1304, 282)
 script = ExtResource("3_0hol4")
 
 [node name="red" type="Sprite2D" parent="red2"]
@@ -70,7 +59,7 @@ position = Vector2(-8, 0)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="Red3" type="Area2D" parent="."]
-position = Vector2(592, 532)
+position = Vector2(1302, 708)
 script = ExtResource("7_d21ai")
 
 [node name="red" type="Sprite2D" parent="Red3"]
@@ -83,7 +72,7 @@ position = Vector2(-8, 0)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="GREEN" type="Area2D" parent="."]
-position = Vector2(256, 58)
+position = Vector2(833, 48)
 script = ExtResource("8_4d7sh")
 
 [node name="Sprite2D" type="Sprite2D" parent="GREEN"]
@@ -96,7 +85,7 @@ position = Vector2(4, 0)
 shape = SubResource("RectangleShape2D_hqns4")
 
 [node name="TEAMS" type="Area2D" parent="."]
-position = Vector2(378, 47)
+position = Vector2(955, 37)
 script = ExtResource("10_hqns4")
 
 [node name="Sprite2D" type="Sprite2D" parent="TEAMS"]
@@ -109,7 +98,7 @@ position = Vector2(16, 21)
 shape = SubResource("RectangleShape2D_0h7mo")
 
 [node name="OUTLOOK" type="Area2D" parent="."]
-position = Vector2(728, 26)
+position = Vector2(1164, 29)
 script = ExtResource("10_x0ka3")
 
 [node name="Sprite2D" type="Sprite2D" parent="OUTLOOK"]
@@ -122,7 +111,7 @@ position = Vector2(69, 57.5)
 shape = SubResource("RectangleShape2D_nr8wp")
 
 [node name="MANIAC" type="Area2D" parent="."]
-position = Vector2(1055, 92)
+position = Vector2(1487, 111)
 script = ExtResource("12_0h7mo")
 
 [node name="Sprite2D" type="Sprite2D" parent="MANIAC"]
@@ -148,6 +137,7 @@ shape = SubResource("RectangleShape2D_flf07")
 
 [node name="FIREWALL" type="Area2D" parent="."]
 position = Vector2(151, 344)
+script = ExtResource("16_flf07")
 
 [node name="Sprite2D" type="Sprite2D" parent="FIREWALL"]
 position = Vector2(1.0000038, 4)
@@ -157,3 +147,15 @@ texture = ExtResource("16_ta5nu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FIREWALL"]
 position = Vector2(1, 4)
 shape = SubResource("RectangleShape2D_k73cj")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(147, 147)
+scale = Vector2(0.765625, 0.7890625)
+script = ExtResource("1_d21ai")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("1_wtcfe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-1.9591827, 0.633667)
+shape = SubResource("RectangleShape2D_rjqkl")
