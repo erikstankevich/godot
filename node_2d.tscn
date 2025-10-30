@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dbjivejplralk"]
+[gd_scene load_steps=24 format=3 uid="uid://dbjivejplralk"]
 
 [ext_resource type="Script" uid="uid://cwk8t2sn21oex" path="res://Player.cs" id="1_d21ai"]
 [ext_resource type="Texture2D" uid="uid://b2ka4u17n5u1x" path="res://icon.svg" id="1_wtcfe"]
@@ -13,9 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://vl4fquccdr1b" path="res://teams.png" id="11_x0ka3"]
 [ext_resource type="Script" uid="uid://dnrwr6fht46dg" path="res://Maniac.cs" id="12_0h7mo"]
 [ext_resource type="Texture2D" uid="uid://cwfmer8ir1n1n" path="res://maniac.png" id="13_nr8wp"]
-[ext_resource type="Script" uid="uid://cefwch5t1lnaj" path="res://Skype.cs" id="14_d2bti"]
-[ext_resource type="Texture2D" uid="uid://dpo6ixtcnafsk" path="res://skype.png" id="15_ta5nu"]
-[ext_resource type="Script" uid="uid://b7jkei4ln2c5v" path="res://Firewall.cs" id="16_flf07"]
+[ext_resource type="Script" uid="uid://ddk0wqi2bharw" path="res://Enemy.cs" id="15_d2bti"]
 [ext_resource type="Texture2D" uid="uid://cnt72yhbp03ir" path="res://firewall.png" id="16_ta5nu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
@@ -33,14 +31,14 @@ size = Vector2(168, 151)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d2bti"]
 size = Vector2(174, 165)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_flf07"]
-size = Vector2(94, 118)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k73cj"]
-size = Vector2(124, 108)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rjqkl"]
 size = Vector2(113.632645, 122.930695)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ta5nu"]
+size = Vector2(339, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_flf07"]
+size = Vector2(157, 111)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(0, -1)
@@ -123,31 +121,6 @@ texture = ExtResource("13_nr8wp")
 position = Vector2(-2, -2.5)
 shape = SubResource("RectangleShape2D_d2bti")
 
-[node name="SKYPE" type="Area2D" parent="."]
-position = Vector2(160, 663)
-script = ExtResource("14_d2bti")
-
-[node name="Sprite2D" type="Sprite2D" parent="SKYPE"]
-scale = Vector2(0.3041543, 1)
-texture = ExtResource("15_ta5nu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SKYPE"]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_flf07")
-
-[node name="FIREWALL" type="Area2D" parent="."]
-position = Vector2(151, 344)
-script = ExtResource("16_flf07")
-
-[node name="Sprite2D" type="Sprite2D" parent="FIREWALL"]
-position = Vector2(1.0000038, 4)
-scale = Vector2(4.0666666, 4.847826)
-texture = ExtResource("16_ta5nu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FIREWALL"]
-position = Vector2(1, 4)
-shape = SubResource("RectangleShape2D_k73cj")
-
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(147, 147)
 scale = Vector2(0.765625, 0.7890625)
@@ -159,3 +132,28 @@ texture = ExtResource("1_wtcfe")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(-1.9591827, 0.633667)
 shape = SubResource("RectangleShape2D_rjqkl")
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(145, 399)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_ta5nu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall"]
+position = Vector2(1.5000081, 6.999996)
+scale = Vector2(11.366666, 2.3478265)
+texture = ExtResource("16_ta5nu")
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+position = Vector2(156, 557)
+script = ExtResource("15_d2bti")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+position = Vector2(4.5, -1.5)
+shape = SubResource("RectangleShape2D_flf07")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+position = Vector2(1.0000229, -0.9998779)
+scale = Vector2(4.2297297, 3.590909)
+texture = ExtResource("13_nr8wp")
