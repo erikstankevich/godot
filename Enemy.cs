@@ -3,7 +3,7 @@ using System;
 
 public partial class Enemy : CharacterBody2D
 {
-	[Export] public float Speed = 90.0f;
+	[Export] public float Speed = 10.0f;
 	private Node2D player;
 
 	public override void _Ready()
